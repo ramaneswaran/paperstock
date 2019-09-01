@@ -1,0 +1,23 @@
+{
+  "name": "paperstock",
+  "version": "1.0.0",
+  "description": "The paper sharing website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramaneswaran/paperstock.git"
+  },
+  "author": "Raman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramaneswaran/paperstock/issues"
+  },
+  "homepage": "https://github.com/ramaneswaran/paperstock#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
