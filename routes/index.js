@@ -16,4 +16,8 @@ router.get('/test', (req, res)=>{
     res.render('test');
 });
 
+router.get('/sharepaper', (req, res)=>{
+    res.render('sharepaper');
+});
+
 module.exports = router;
