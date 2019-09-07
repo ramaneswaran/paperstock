@@ -1,13 +1,17 @@
 const express = require('express');
-const routes = require('./routes/api');
 const mongoose = require('mongoose');
 require('dotenv/config');
+
+//ROUTES
+const index = require('./routes/index');
+const admin = require('./routes/admin');
 
 //Set up express app
 const app = express();
 
 //Set up api routes
-app.use(routes);
+app.use('/', index);
+app.use('/admin', admin);
 
 //Set up a middleware
 app.use(express.static('public'));
