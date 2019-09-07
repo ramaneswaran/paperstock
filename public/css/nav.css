@@ -1,0 +1,84 @@
+/*NAVIGATION BAR STYLING */
+
+.nav-container nav.desk, nav.mob{
+    width: 100%;
+    background: #1d2125;
+    height: 60px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+    position: scroll;
+    top:0;
+    left:0;
+
+}
+
+nav.desk ul{
+    list-style-type: none;
+    width: 75;
+    height: 60px;
+    margin: 0 auto;
+}
+
+nav.desk ul li{
+    width: 20%;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+nav.desk ul li:hover{
+    background-color: grey;
+
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav.mob, .hamburger-btn{
+    display: none;
+}
+
+@media screen and (max-width: 700px){
+    nav.desk{
+        display: none;
+    }
+    nav.mob, .hamburger-btn {
+        display: block;
+    }
+
+    .hamburger-btn{
+        position: relative;
+    }
+
+    .hamburger-btn .fa-bars, .hamburger-btn .fa-times{
+        position: fixed;
+        right: 25px;
+        right: 15px;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mob ul{
+        background: #1d2125;
+        list-style-type: none;
+        display: none;
+        overflow: visible;
+    }
+
+    .mob li{
+        text-transform: uppercase;
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+    }
+    
+    .mob ul.active{
+        display: block;
+    }
+}
+
