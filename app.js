@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes/api');
+const mongoose = require('mongoose');
 
 //Set up express app
 const app = express();
