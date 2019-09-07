@@ -124,6 +124,7 @@ nav.mob, .hamburger-btn{
     background-repeat:no-repeat;
     background-attachment:fixed;
     width:100%;
+    z-index: -2;
   }
  
 
@@ -163,7 +164,7 @@ section{
     margin: 0;
     padding: 2%;
     width:100%;
-    background-color: #282e34;
+    background-color:#1d2125;
 }
 
 .container {
