@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width", initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <% include partials/nav %>
+    <h1>Yo dawg ! Link some courses</h1>
+    <hr>
+    <form method="POST" action="admin/linkcourse/submit">
+        <fieldset>
+            <legend>Enter Course Code</legend>
+            <input type="text" name="courseCode">
+            
+        </fieldset>
+        <legend>Select the school</legend>
+        <table>
+            <tr>
+                <td><label for="scope">SCOPE</label></td>
+                <td><input type="checkbox" id="scope" name="scope"></td>
+            </tr>
+            <tr>
+                <td><label for="scope">SITE</label></td>
+                <td><input type="checkbox" id="site" name="site"></td>
+                </tr>
+            <tr>
+                <td><label for="scope">SELECT</label></td>
+                <td><input type="checkbox" id="select" name="select"></td>
+            </tr>
+            <tr>
+                <td><label for="scope">SENSE</label></td>
+                <td><input type="checkbox" id="sense" name="sense"></td>
+            </tr>
+        </table>
+        <fieldset>
+                <input type="submit" value="SUBMIT">
+        </fieldset>
+    </form>
+</body>
+</html>

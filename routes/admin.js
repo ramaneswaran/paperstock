@@ -13,4 +13,10 @@ router.get('/addcourse', (req, res)=>{
 router.get('/addpaper', (req, res)=>{
     res.render('addpaper');
 });
+
+router.get('/linkcourse', (req, res)=>{
+    res.render('linkcourse')
+});
+
+
 module.exports = router;
