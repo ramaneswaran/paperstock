@@ -9,6 +9,10 @@ const admin = require('./routes/admin');
 //Set up express app
 const app = express();
 
+//Setup body parser for post requests
+app.use(express.json());
+app.use(express.urlencoded({extended :true}));
+
 //Set up api routes
 app.use('/', index);
 app.use('/admin', admin);
@@ -18,6 +22,11 @@ app.use(express.static('public'));
 
 //Set up template engine
 app.set('view engine', 'ejs');
+
+//EXPERIMENTING
+app.post('/admin/linkcourse/submit', (req, res)=>{
+    res.send(req.body);
+});
 
 //CONNECT TO DB
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, ()=>{
