@@ -42,6 +42,8 @@ router.get('/schools', (req, res)=>{
 
 router.post('/addcourse/submit', async (req, res)=>{
     
+    const schoolList = ["scope", 'site', 'sense', 'select', 'smec', 'sas', 'scheme', 'sce', 'sbst', 'vitbs', 'vsparc', 'ssl'];
+
     courses.findOne({"courseCode" : req.body.courseCode}, (err, course)=>{
         if(err) console.error(err);
     })
@@ -56,9 +58,28 @@ router.post('/addcourse/submit', async (req, res)=>{
     }catch(err){
         res.json({message: err});
     }
+    
 
+    const linkedSchool = req.body.school;
+    const courseCode = req.body.courseCode;
+
+
+    linkedSchool.forEach((school)=>{
+        schools.update({"schoolName": school},
+        {$push: {"courses": courseCode}},
+        (err, numAffected)=>{
+            if(err){
+                console.error(err);
+            }
+            else{
+                console.log(numAffected);
+            }
+        });
+    });
+    
 
 });
+
 
 
 
