@@ -23,13 +23,11 @@ app.use(express.static('public'));
 //Set up template engine
 app.set('view engine', 'ejs');
 
-//EXPERIMENTING
-app.post('/admin/linkcourse/submit', (req, res)=>{
-    res.send(req.body);
-});
+
 
 //CONNECT TO DB
-mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, ()=>{
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, (err)=>{
+    if(err) console.log(err);
     console.log('Connected to DB');
 });
 

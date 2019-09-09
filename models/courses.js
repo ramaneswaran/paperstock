@@ -8,10 +8,10 @@ const courseSchema = mongoose.Schema({
     courseName : {
         type: String,
         required: true,
-    }
+    },
     courseLinks : {
         type: [String],
     }
 });
 
-module.exports = mongoose.model('course', courseSchema);
+module.exports = mongoose.model('courses', courseSchema);

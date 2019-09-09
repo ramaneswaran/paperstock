@@ -11,19 +11,55 @@
     <h1>Yo dawg add a course</h1>
     <hr>
     <div class="form-field">
-        <form>
-            <fieldset>
-                <legend>School Name</legend>
-                <input type="text" id="dept_name">
-            </fieldset>
+        <form method="POST" action="addcourse/submit">
             <fieldset>
                 <legend>Course code</legend>
-                <input type="text" id="course_code">
+                <input type="text"  name="courseCode">
             </fieldset>
             <fieldset>
                 <legend>Course Name</legend>
-                <input type="text" id="course_name">
+                <input type="text" name="courseName">
             </fieldset>
+            <legend>Select the school</legend>
+        <table>
+            <tr>
+                <td><label for="scope">SCOPE</label></td>
+                <td><input type="checkbox" id="scope" name="scope"></td>
+                <td><label for="scheme">SCHEME</label></td>
+                <td><input type="checkbox" id="scheme" name="scheme"></td>
+            </tr>
+            <tr>
+                <td><label for="site">SITE</label></td>
+                <td><input type="checkbox" id="site" name="site"></td>
+                <td><label for="sce">SCE</label></td>
+                <td><input type="checkbox" id="sce" name="sce"></td>
+                </tr>
+            <tr>
+                <td><label for="select">SELECT</label></td>
+                <td><input type="checkbox" id="select" name="select"></td>
+                <td><label for="sbst">SBST</label></td>
+                <td><input type="checkbox" id="sbst" name="sbst"></td>
+            </tr>
+            <tr>
+                <td><label for="sense">SENSE</label></td>
+                <td><input type="checkbox" id="sense" name="sense"></td>
+                <td><label for="vitbs">VIT BS</label></td>
+                <td><input type="checkbox" id="vitbs" name="vitbs"></td>
+            </tr>
+            <tr>
+                <td><label for="smec">SMEC</label></td>
+                <td><input type="checkbox" id="smec" name="smec"></td>
+                <td><label for="vsparc">V-SPARC</label></td>
+                <td><input type="checkbox" id="vsparc" name="vsparc"></td>
+            </tr>
+            <tr>
+                <td><label for="sas">SAS</label></td>
+                <td><input type="checkbox" id="sas" name="sas"></td>
+                <td><label for="ssl">SSL</label></td>
+                <td><input type="checkbox" id="ssl" name="ssl"></td>
+            </tr>
+        </table>
+        <fieldset>
             <fieldset>
                 <input type="submit" id="submit" value="SUBMIT">
             </fieldset>

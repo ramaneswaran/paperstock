@@ -4,10 +4,10 @@ const schoolSchema = mongoose.Schema({
    schoolName :{
        type:String,
        required: true,
-   } 
+   } ,
    courses: {
        type: [String],
    }
 });
 
-module.exports = mongoose.model('school', schoolSchema);
+module.exports = mongoose.model('schools', schoolSchema);
