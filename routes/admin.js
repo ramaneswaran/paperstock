@@ -40,45 +40,73 @@ router.get('/schools', (req, res)=>{
 
 });
 
-router.post('/addcourse/submit', async (req, res)=>{
+router.post('/addcourse/submit', (req, res)=>{
     
-    const schoolList = ["scope", 'site', 'sense', 'select', 'smec', 'sas', 'scheme', 'sce', 'sbst', 'vitbs', 'vsparc', 'ssl'];
-
-    courses.findOne({"courseCode" : req.body.courseCode}, (err, course)=>{
-        if(err) console.error(err);
-    })
-    const newCourse = new courses({
-        courseCode : req.body.courseCode,
-        courseName : req.body.courseName,
-    });
-
-    try{
-        const savedCourse = await newCourse.save();
-        res.json(savedCourse);
-    }catch(err){
-        res.json({message: err});
-    }
     
-
     const linkedSchool = req.body.school;
     const courseCode = req.body.courseCode;
 
+    if(typeof linkedSchool === "undefined" || typeof linkedSchool === "null"){
+        //pass
+        console.log("Hell yeah its undefined")
+    }
+    else if(typeof linkedSchool === "string"){
+        schools.updateOne({"schoolName": linkedSchool},
+            {$push: {"courses": courseCode}},
+            (err, numAffected)=>{
+                if(err){
+                    console.error(err);
+                }
+            }
+        );
+    }
+    else {
+        Array.from(linkedSchool).forEach((school)=>{
+            console.log("Here, wohoo");
+            schools.updateOne({"schoolName": school},
+                {$push: {"courses": courseCode}},
+                (err, numAffected)=>{
+                    if(err){
+                        console.error(err);
+                    }
+                }
+            );
+        });
+    }
+    
+    
+    courses.find({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
+        if(count == 0){
+            const newCourse = new courses({
+                courseCode : req.body.courseCode,
+                courseName : req.body.courseName,
+            });
+        
+            newCourse.save((err, savedCourse)=>{
+            res.json(savedCourse);
+            });
+        }
+    
+        else{
+            res.send("Course already exists, Dattebayo!");
+        }
+    });
+    
 
-    linkedSchool.forEach((school)=>{
-        schools.updateOne({"schoolName": school},
-        {$push: {"courses": courseCode}},
+
+});
+router.get('/addpaper/submit', (req, res)=>{
+    //Update the document
+    courses.updateOne({"courseCode": req.body.courseCode},
+        {$push: {"courseLinks": req.body.paperLink}},
         (err, numAffected)=>{
             if(err){
                 console.error(err);
             }
-            else{
-                console.log(numAffected);
-            }
-        });
-    });
-    
-
+        }
+    )
 });
+    
 
 
 
