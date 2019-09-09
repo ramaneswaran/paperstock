@@ -10,11 +10,10 @@
     <% include partials/nav %>
     <h1>Yo dawg add a paper</h1>
     <hr>
-    <div class="form-field">
-        <form>
+        <form method="POST" action="addpaper/submit">
             <fieldset>
                 <legend>Course code</legend>
-                <input type="text" name="courseCodes">
+                <input type="text" name="courseCode">
             </fieldset>
             <fieldset>
                 <legend>Paper Link</legend>
@@ -24,6 +23,6 @@
                 <input type="submit" id="submit" value="SUBMIT">
             </fieldset>
         </form>
-    </div>
+    
 </body>
 </html>

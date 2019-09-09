@@ -48,7 +48,6 @@ router.post('/addcourse/submit', (req, res)=>{
 
     if(typeof linkedSchool === "undefined" || typeof linkedSchool === "null"){
         //pass
-        console.log("Hell yeah its undefined")
     }
     else if(typeof linkedSchool === "string"){
         schools.updateOne({"schoolName": linkedSchool},
@@ -93,20 +92,35 @@ router.post('/addcourse/submit', (req, res)=>{
     });
     
 
-
 });
-router.get('/addpaper/submit', (req, res)=>{
+
+router.post('/addpaper/submit', (req, res)=>{
     //Update the document
-    courses.updateOne({"courseCode": req.body.courseCode},
-        {$push: {"courseLinks": req.body.paperLink}},
-        (err, numAffected)=>{
-            if(err){
-                console.error(err);
+    courses.findOne({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
+        console.log("The count is "+count+" for courseCode: "+req.body.courseCode);
+        if(err) {
+            console.error(err);
+        }
+        else{
+            if(count == 1){
+                console.log("Since count was 1 i am here")
+                console.log("This link is "+req.body.paperLink)
+                courses.updateOne({"courseCode": req.body.courseCode},
+                    {$push: {"courseLinks": req.body.paperLink}},
+                    (err, numAffected)=>{
+                        if(err){
+                            console.error(err);
+                        }
+                    }
+                );
+            }
+            else{
+                res.send("Thomas had never seen such a bullshit, this course doesnt exist");
             }
         }
-    )
+    });
+
 });
-    
 
 
 
