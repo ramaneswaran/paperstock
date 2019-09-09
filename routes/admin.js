@@ -65,7 +65,7 @@ router.post('/addcourse/submit', async (req, res)=>{
 
 
     linkedSchool.forEach((school)=>{
-        schools.update({"schoolName": school},
+        schools.updateOne({"schoolName": school},
         {$push: {"courses": courseCode}},
         (err, numAffected)=>{
             if(err){
