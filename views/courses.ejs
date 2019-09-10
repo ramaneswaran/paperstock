@@ -7,17 +7,20 @@
     <title>Courses</title>
 </head>
 <body>
-    <section class="course_content">
-        <ul class="course_list">
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-            <li><a href="#" class="course_title">Dummy</a></li>
-        </ul>
-    </section>
+    <% include partials/nav %>
+
+    <form method="POST" action="courses/submit">
+        <fieldset>
+            <legend>Enter schoolName</legend>
+            <input type="text" name="schoolName" >
+        </fieldset>
+        <input type="submit" value="SUBMIT">
+    </form>
+    <hr>
+    <ul>
+        <% for(var i=0; i< todos.length; i++){%>
+            <li><a href="#"><%= todos[i].item %></a></li>
+        <% } %>
+    </ul>
 </body>
 </html>

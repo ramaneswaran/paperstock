@@ -5,6 +5,7 @@ require('dotenv/config');
 //ROUTES
 const index = require('./routes/index');
 const admin = require('./routes/admin');
+const courses = require('./routes/courses');
 
 //Set up express app
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended :true}));
 //Set up api routes
 app.use('/', index);
 app.use('/admin', admin);
+app.use('/courses', courses);
 
 //Set up a middleware
 app.use(express.static('public'));

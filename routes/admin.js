@@ -26,19 +26,6 @@ router.get('/linkcourse', (req, res)=>{
     res.render('linkcourse')
 });
 
-router.get('/schools', (req, res)=>{
-    console.log('This got triggered');
-    const schoolList = ["scope", 'site', 'sense', 'select', 'smec', 'sas', 'scheme', 'sce', 'sbst', 'vitbs', 'vsparc', 'ssl'];
-    const list = []
-    
-    schoolList.forEach((name)=>{
-        schools.find({"schoolName": name}, (err, school)=>{
-        console.log(school);
-        });
-    });
-
-
-});
 
 router.post('/addcourse/submit', (req, res)=>{
     
@@ -61,7 +48,7 @@ router.post('/addcourse/submit', (req, res)=>{
     }
     else {
         Array.from(linkedSchool).forEach((school)=>{
-            console.log("Here, wohoo");
+            
             schools.updateOne({"schoolName": school},
                 {$push: {"courses": courseCode}},
                 (err, numAffected)=>{
@@ -97,14 +84,11 @@ router.post('/addcourse/submit', (req, res)=>{
 router.post('/addpaper/submit', (req, res)=>{
     //Update the document
     courses.findOne({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
-        console.log("The count is "+count+" for courseCode: "+req.body.courseCode);
         if(err) {
             console.error(err);
         }
         else{
             if(count == 1){
-                console.log("Since count was 1 i am here")
-                console.log("This link is "+req.body.paperLink)
                 courses.updateOne({"courseCode": req.body.courseCode},
                     {$push: {"courseLinks": req.body.paperLink}},
                     (err, numAffected)=>{
