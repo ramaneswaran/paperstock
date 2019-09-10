@@ -91,20 +91,24 @@ router.post('/addcourse/submit', (req, res)=>{
 
 router.post('/addpaper/submit', (req, res)=>{
     //Update the document
+    console.log("Reached here");
     courses.findOne({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
         if(err) {
             console.error(err);
         }
         else{
             if(count == 1){
-                courses.updateOne({"courseCode": req.body.courseCode},
-                    {$push: {"courseLinks": req.body.paperLink}},
+                const examType = req.body.exam + 'Links'; 
+                console.log(examType);
+                courses.updateOne({courseCode: req.body.courseCode},
+                    {$push: {[examType]: req.body.paperLink}},
                     (err, numAffected)=>{
                         if(err){
                             console.error(err);
                         }
                     }
                 );
+                res.send("It probably worked");
             }
             else{
                 res.send("Thomas had never seen such a bullshit, this course doesnt exist");
