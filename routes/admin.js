@@ -22,23 +22,31 @@ router.get('/addpaper', (req, res)=>{
     res.render('addpaper');
 });
 
-router.get('/linkcourse', (req, res)=>{
-    res.render('linkcourse')
+router.post('/addschool', (req, res)=>{
+    const newSchool = new schools({
+        schoolName : req.body.name
+    });
+    console.log(newSchool);
+    newSchool.save((err, savedSchool)=>{
+    if(err) throw err;
+    res.json(savedSchool);
+    });
+    
 });
-
 
 router.post('/addcourse/submit', (req, res)=>{
     
     
     const linkedSchool = req.body.school;
     const courseCode = req.body.courseCode;
-
+    const courseName = req.body.courseName;
+    
     if(typeof linkedSchool === "undefined" || typeof linkedSchool === "null"){
         //pass
     }
     else if(typeof linkedSchool === "string"){
         schools.updateOne({"schoolName": linkedSchool},
-            {$push: {"courses": courseCode}},
+            {$push: {"courses": courseCode,"courseNames": courseName}},
             (err, numAffected)=>{
                 if(err){
                     console.error(err);
@@ -50,7 +58,7 @@ router.post('/addcourse/submit', (req, res)=>{
         Array.from(linkedSchool).forEach((school)=>{
             
             schools.updateOne({"schoolName": school},
-                {$push: {"courses": courseCode}},
+                {$push: {"courses": courseCode, "courseNames": courseName}},
                 (err, numAffected)=>{
                     if(err){
                         console.error(err);

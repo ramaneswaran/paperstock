@@ -9,18 +9,14 @@
 <body>
     <% include partials/nav %>
 
-    <form method="POST" action="courses/submit">
-        <fieldset>
-            <legend>Enter schoolName</legend>
-            <input type="text" name="schoolName" >
-        </fieldset>
-        <input type="submit" value="SUBMIT">
-    </form>
+    <h1>Yo dawg ! here is your list</h1>
     <hr>
+    
     <ul>
-        <% for(var i=0; i< todos.length; i++){%>
-            <li><a href="#"><%= todos[i].item %></a></li>
+        <% for(var i=0; i< course.length; i++){%>
+            <li><a href="#"><%= course[i] %>&nbsp&nbsp<%=courseNames[i] %></a></li>
         <% } %>
     </ul>
+    
 </body>
 </html>

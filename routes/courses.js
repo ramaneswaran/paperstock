@@ -16,19 +16,26 @@ router.use(express.urlencoded({extended: true}));
 
 router.get('/', (req, res)=>{
     res.render('courses', {todos: data});
-})
-let courseList = [];
-router.post('/submit', (req, res)=>{
-    schools.findOne({"schoolName": req.body.schoolName}, (err, school)=>{
-        if(err) throw err;
-        courseList = school.courses;
-    });
-
-    res.json(courseList);
 });
 
+
 router.get('/:id', (req,res)=>{
-    res.send(req.params.id);
-})
+
+    
+    
+    schools.findOne({"schoolName": req.params.id}, (err, school)=>{
+        const course = school.courses;
+        const courseNames = school.courseNames;
+        if(course.length >0){
+            res.render('courses', {course : course, courseNames : courseNames})
+        }
+        else{
+            res.send("Sorry fam, there are no courses");
+        }
+    });
+
+    
+
+});
 
 module.exports = router;    
