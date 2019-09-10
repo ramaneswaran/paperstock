@@ -6,7 +6,6 @@ const schools = require('../models/schools');
 const courses = require('../models/courses');
 
 
-var data = [{item: 'get milk'}, {item: 'walk dog'}];
 
 //Setting up middleware for parsing post request
 router.use(express.json());
@@ -19,11 +18,9 @@ router.get('/', (req, res)=>{
 });
 
 
-router.get('/:id', (req,res)=>{
+router.get('/:schoolName', (req,res)=>{
 
-    
-    
-    schools.findOne({"schoolName": req.params.id}, (err, school)=>{
+    schools.findOne({"schoolName": req.params.schoolName}, (err, school)=>{
         const course = school.courses;
         const courseNames = school.courseNames;
         if(course.length >0){
@@ -33,9 +30,18 @@ router.get('/:id', (req,res)=>{
             res.send("Sorry fam, there are no courses");
         }
     });
+});
 
-    
-
+router.get('/school/:courseCode', (req, res)=>{
+    courses.findOne({courseCode: req.params.courseCode},(err, course)=>{
+        const courseLinks = course.courseLinks;
+        if(courseLinks.length >0){
+            res.render('paper', {courseLinks: courseLinks});
+        }
+        else{
+            res.send('Sorry fam no papers have been added yet');
+        }
+    });
 });
 
 module.exports = router;    

@@ -9,12 +9,12 @@
 <body>
     <% include partials/nav %>
 
-    <h1>Yo dawg ! here is your list</h1>
+    <h1>Yo dawg ! here is your list of question papers</h1>
     <hr>
     
     <ul>
-        <% for(var i=0; i< course.length; i++){%>
-            <li><a href=school/<%= course[i] %>> <%= course[i] %>&nbsp&nbsp<%=courseNames[i] %></a></li>
+        <% for(var i=0; i< courseLinks.length; i++){%>
+            <li><a href=<%= courseLinks[i] %>>Question Paper <%= i %> </a></li>
         <% } %>
     </ul>
     
