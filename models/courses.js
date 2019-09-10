@@ -9,7 +9,13 @@ const courseSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    courseLinks : {
+    catOneLinks : {
+        type: [String],
+    } ,
+    catTwoLinks : {
+        type: [String],
+    } ,
+    FatLinks : {
         type: [String],
     }
 });
