@@ -11,7 +11,11 @@
 
     <h1>Yo dawg ! here is your list of question papers</h1>
     <hr>
-    
+    <h1><%= examType %></h1>
+    <hr>
+    <a href="/">CAT1</a>
+    <a href="#">CAT2</a>
+    <a href="#">FAT</a>
     <ul>
         <% for(var i=0; i< courseLinks.length; i++){%>
             <li><a href=<%= courseLinks[i] %>>Question Paper <%= i %> </a></li>

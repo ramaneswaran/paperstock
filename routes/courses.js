@@ -15,7 +15,7 @@ router.use(express.urlencoded({extended: true}));
 
 router.get('/', (req, res)=>{
     res.render('courses', {todos: data});
-});
+}); 
 
 
 router.get('/:schoolName', (req,res)=>{
@@ -24,7 +24,7 @@ router.get('/:schoolName', (req,res)=>{
         const course = school.courses;
         const courseNames = school.courseNames;
         if(course.length >0){
-            res.render('courses', {course : course, courseNames : courseNames})
+            res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName})
         }
         else{
             res.send("Sorry fam, there are no courses");
@@ -32,16 +32,20 @@ router.get('/:schoolName', (req,res)=>{
     });
 });
 
-router.get('/school/:courseCode', (req, res)=>{
+router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
     courses.findOne({courseCode: req.params.courseCode},(err, course)=>{
-        const courseLinks = course.courseLinks;
+        const examType = req.params.examType + 'Links';
+        console.log(examType);
+        const courseLinks = course[examType];
         if(courseLinks.length >0){
-            res.render('paper', {courseLinks: courseLinks});
+            res.render('paper', {courseLinks: courseLinks, examType: examType});
         }
         else{
             res.send('Sorry fam no papers have been added yet');
         }
     });
+   
+   res.json(req.params);
 });
 
 module.exports = router;    
