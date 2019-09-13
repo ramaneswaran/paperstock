@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/nav.js"></script>
+
 </head>
 <body>
-    <h1>Welcome to the admin panel</h1>
+    <% include partials/nav %>
+    <h1 class="admin-heading">Welcome to the admin panel</h1>
     <br>
-    <ul>
-        <li><a href="/admin/addcourse">Add course</a></li>
-        <li><a href="/admin/addpaper">Add paper</a></li>
-    </ul>   
+    <div class="container">    
+        <ul class="admin-options">
+            <li><a href="/admin/addcourse">Add course</a></li>
+            <li><a href="/admin/addpaper">Add paper</a></li>
+        </ul>
+    </div>  
 </body>
 </html>

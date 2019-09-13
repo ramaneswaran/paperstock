@@ -1,0 +1,60 @@
+/*STYLING HTML ,BODY AND THE PAGE*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body,html{
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    //background-image: url('/images/art-background-blank-2340254.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1.admin-heading {
+    margin: 4% auto auto 25%;
+    font-size: 3rem;
+}
+.container {
+    display: block;
+    background-color: #57595d;
+    margin: 2% 16%;
+    width: 60vw;
+    height: auto;
+    border: 2px solid red;
+}
+
+ul.admin-options {
+    list-style-type: none;  
+    padding: 2rem 0.3rem;
+    margin:0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items : center;
+}
+
+ul.admin-options li {
+    display: inline-block;
+    margin: 0.4rem;
+    border: 1px solid blanchedalmond;
+    width: 60%;
+    padding: 0.2rem;
+}
+
+ul.admin-options li a {
+    color: white;
+    display: block;
+    width: 100%;    
+    font-size: 1.9rem;
+    text-decoration: none;
+}
+
+ul.admin-options li a:hover{
+    font-size: 2rem;
+}
