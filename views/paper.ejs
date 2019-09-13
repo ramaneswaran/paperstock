@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Courses</title>
+    <title>Papers</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/paper.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/nav.js"></script>
 </head>
 <body>
     <% include partials/nav %>
 
-    <h1>Yo dawg ! here is your list of question papers</h1>
-    <hr>
-    <h1><%= examType %></h1>
-    <hr>
-    <a href="/">CAT1</a>
-    <a href="#">CAT2</a>
-    <a href="#">FAT</a>
-    <ul>
+    
+        <ul class="exam">
+            <li><a href=catOne>CAT1</a></li>
+            <li><a href=catTwo>CAT2</a></li>
+            <li><a href=Fat>FAT</a></li>    
+        </ul>
+    
+    <div class="container">    
+            <ul class="paper-list">
         <% for(var i=0; i< courseLinks.length; i++){%>
             <li><a href=<%= courseLinks[i] %>>Question Paper <%= i %> </a></li>
         <% } %>
     </ul>
+    </div>
     
 </body>
 </html>
