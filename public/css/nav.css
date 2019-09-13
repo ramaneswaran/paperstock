@@ -8,6 +8,7 @@
     position: scroll;
     top:0;
     left:0;
+    
 
 }
 
@@ -68,6 +69,7 @@ nav.mob, .hamburger-btn{
         font-size: 35px;
         color: white;
         cursor: pointer;
+        
     }
 
     .mob ul{

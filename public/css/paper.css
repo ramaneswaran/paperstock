@@ -18,6 +18,12 @@ body,html{
 }
 
 
+.wrapper {
+    margin: 0;
+    position: relative;
+    z-index: -2;
+}
+
 
 nav.exam-type {
     display: block;
