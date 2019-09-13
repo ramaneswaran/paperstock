@@ -1,0 +1,60 @@
+/*STYLING HTML ,BODY AND THE PAGE*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body,html{
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    //background-image: url('/images/art-background-blank-2340254.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+form.form {
+    margin : 3% auto auto 20%;
+    width: 60vw;
+    padding: 2%;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+form.form fieldset {
+    margin: 0.5%;
+    padding: 2%;
+    border: 1px solid blue;
+}
+form.form fieldset legend {
+    border: 2px solid green;
+    padding: 1%;
+    width: 10rem;
+}
+
+form.form fieldset table.school {
+    border-collapse: collapse;
+    margin: 1% 2%;
+    display: flex;
+
+}
+
+form.form fieldset table.school td{
+    
+    
+    width: 10rem;
+    padding: 1%;
+}
+
+form.form fieldset table.school td label{
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 0.4px solid blue;
+    padding: 2%;
+}

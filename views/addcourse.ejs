@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add a course</title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/addcourse.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/nav.js"></script>
+
+
 </head>
 <body>
     <% include partials/nav %>
-    <h1>Yo dawg add a course</h1>
-    <hr>
-    <div class="form-field">
-        <form method="POST" action="addcourse/submit">
+
+        <form method="POST" action="addcourse/submit" class="form">
             <fieldset>
                 <legend>Course code</legend>
                 <input type="text"  name="courseCode">
@@ -20,8 +30,9 @@
                 <legend>Course Name</legend>
                 <input type="text" name="courseName">
             </fieldset>
+        <fieldset>
             <legend>Select the school</legend>
-        <table>
+        <table class="school">
             <tr>
                 <td><label for="scope">SCOPE</label></td>
                 <td><input type="checkbox" id="scope" name="school" value="scope"></td>
@@ -59,11 +70,11 @@
                 <td><input type="checkbox" id="ssl" name="school" value="ssl"></td>
             </tr>
         </table>
-        <fieldset>
+    </fieldset>
             <fieldset>
                 <input type="submit" id="submit" value="SUBMIT">
             </fieldset>
         </form>
-    </div>
+    <% include partials/footer %>
 </body>
 </html>
