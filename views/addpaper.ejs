@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add Paper</title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/addpaper.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/nav.js"></script>
+
+
 </head>
 <body>
     <% include partials/nav %>
-    <h1>Yo dawg add a paper</h1>
-    <hr>
-        <form method="POST" action="addpaper/submit">
+
+        <form method="POST" action="addpaper/submit" class="form">
             <fieldset>
                 <legend>Course code</legend>
                 <input type="text" name="courseCode">
@@ -21,7 +32,7 @@
             </fieldset>
             <fieldset>
                 <legend>Exam</legend>
-                <table>
+                <table class="exam-type">
                     <tr>
                         <td><label for="catOne">CAT1</label></td>
                         <td><label for="catTwo">CAT2</label></td>
