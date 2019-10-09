@@ -24,13 +24,16 @@
             <li><a href=Fat>FAT</a></li>    
         </ul>
     
-    <div class="container">    
+        <div class="container">    
             <ul class="paper-list">
-        <% for(var i=0; i< courseLinks.length; i++){%>
-            <li><a href=<%= courseLinks[i] %>>Question Paper <%= i %> </a></li>
-        <% } %>
-    </ul>
+                <% for(var i=0; i< courseLinks.length; i++){%>
+                    <li><a href=<%= courseLinks[i] %>>Question Paper <%= i %> </a></li>
+                <% } %>
+            </ul>
+            <% if(empty === true) {%>
+                <h1>There are no papers, at the moment</h1>
+            <% } %>
+        </div>
     </div>
-</div>
 </body>
 </html>

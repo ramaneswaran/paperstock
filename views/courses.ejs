@@ -27,6 +27,9 @@
                 <li><a href=<%= schoolName %>/<%= course[i] %>/catTwo> <%= course[i] %>&nbsp&nbsp<%=courseNames[i] %></a></li>
             <% } %>
         </ul>
+            <% if(empty === true) {%>
+                <h1>There are no courses, at the moment</h1>
+            <% } %>
     </div>
 </div>
     

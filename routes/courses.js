@@ -21,11 +21,11 @@ router.get('/:schoolName', (req,res)=>{
         const course = school.courses;
         const courseNames = school.courseNames;
         if(course.length >0){
-            res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName})
+            res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName,empty: false})
         }
         else{
-            res.send("Sorry fam, there are no courses");
-        }
+            res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName ,empty: true})       
+         }
     });
 });
 
@@ -37,10 +37,10 @@ router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
         const examType = req.params.examType + 'Links';
         const courseLinks = course[examType];
         if(courseLinks.length >0){
-            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode});
+            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: false});
         }
         else{
-            res.send('Sorry fam no papers have been added yet');
+            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: true});
         }
     });
     
