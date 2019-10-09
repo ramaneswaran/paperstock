@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel</title>
+
+    
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/success.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/nav.js"></script>
+
+</head>
+<body>
+    <% include partials/nav %>
+    <div class="flex-wrapper">
+        <div class="column">
+        <div class="flex-image">
+            <img src='/images/tick.png' class="success-tick">
+        </div>
+        <div class="flex-message">
+            <h1 class="success-heading">Success</h1>
+            <br>
+            <span class="success-message">Your <%= item %> has been posted successfully</span>
+        </div>  
+        <div class="flex-links">
+            <ul class="redirect-options">
+                <li><a href="/admin/addcourse">Add course</a></li>
+                <li><a href="/admin/addpaper">Add paper</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
