@@ -17,12 +17,6 @@ body,html{
     background-attachment: fixed;
 }
 
-.wrapper {
-    margin: 0;
-    position: relative;
-    z-index: -2;
-}
-
 form.form {
     margin : 3% auto 2% 20%;
     width: 60vw;

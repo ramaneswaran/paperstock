@@ -5,11 +5,7 @@
     box-sizing: border-box;
 
 }
-.wrapper {
-    margin: 0;
-    position: relative;
-    z-index: -2;
-}
+
 
 body,html{
     height: 100%;

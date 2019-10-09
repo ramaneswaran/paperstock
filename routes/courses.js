@@ -13,7 +13,7 @@ router.use(express.urlencoded({extended: true}));
 
 //Handling requests
 
-
+//Viewing courses for each school
 router.get('/:schoolName', (req,res)=>{
 
     schools.findOne({"schoolName": req.params.schoolName}, (err, school)=>{
@@ -29,7 +29,7 @@ router.get('/:schoolName', (req,res)=>{
     });
 });
 
-
+//Viewing the papers in a course
 router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
     courses.findOne({courseCode: req.params.courseCode},(err, course)=>{
         if(err) res.send("404");

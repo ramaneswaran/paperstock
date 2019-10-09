@@ -17,11 +17,7 @@ body,html{
     background-attachment: fixed;
 }
 
-.wrapper {
-    margin: 0;
-   position: relative;
-    z-index: -2;
-}
+
 
 h1.admin-heading {
     margin: 4% auto auto 25%;
