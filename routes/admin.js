@@ -10,6 +10,8 @@ router.use(express.json());
 router.use(express.urlencoded({extended: true}));
 
 //Handling the requests
+
+//Rendering views for admin panel
 router.get('/', (req, res)=>{
     res.render('admin');
 });
@@ -34,6 +36,7 @@ router.post('/addschool', (req, res)=>{
     
 });
 
+//Posting a new course
 router.post('/addcourse/submit', (req, res)=>{
     
     
@@ -89,6 +92,8 @@ router.post('/addcourse/submit', (req, res)=>{
 
 });
 
+
+//Posting a new paper~
 router.post('/addpaper/submit', (req, res)=>{
     //Update the document
     console.log("Reached here");
