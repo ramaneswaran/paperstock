@@ -93,7 +93,7 @@ router.post('/addcourse/submit', (req, res)=>{
 });
 
 
-//Posting a new paper
+//Posting a new paper~
 router.post('/addpaper/submit', (req, res)=>{
     //Update the document
     console.log("Reached here");
