@@ -58,7 +58,7 @@ router.post('/addcourse/submit', (req, res)=>{
             (err, numAffected)=>{
                 if(err){
                     console.error(err);
-                    res.render('failure', {item: 'course'})
+                    res.render('failure', {message: 'The course could not be added'})
                 }
             }
         );
@@ -88,13 +88,13 @@ router.post('/addcourse/submit', (req, res)=>{
             newCourse.save((err, savedCourse)=>{
             if(err) throw err;
             else{
-                res.status(200).render('success', {item: 'course'});
+                res.status(200).render('success', {message: 'The course has been posted successfully'});
             }
             });
         }
     
         else{
-            res.send("Course already exists, Dattebayo!");
+            res.render('failure', {message: 'The course already exists'});
         }
     });
     
@@ -122,10 +122,10 @@ router.post('/addpaper/submit', (req, res)=>{
                         }
                     }
                 );
-                res.status(200).send("It probably worked");
+                res.status(200).render('success', {message: 'Paper has been added successfully'});
             }
             else{
-                res.send("Thomas had never seen such a bullshit, this course doesnt exist");
+                res.status(409).render('failure', {message: 'The course does not exist'});
             }
         }
     });
