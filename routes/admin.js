@@ -105,7 +105,6 @@ router.post('/addcourse/submit', (req, res)=>{
 //Posting a new paper
 router.post('/addpaper/submit', (req, res)=>{
     //Update the document
-    console.log("Reached here");
     courses.findOne({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
         if(err) {
             console.error(err);
@@ -113,7 +112,6 @@ router.post('/addpaper/submit', (req, res)=>{
         else{
             if(count == 1){
                 const examType = req.body.exam + 'Links'; 
-                console.log(examType);
                 courses.updateOne({courseCode: req.body.courseCode},
                     {$push: {[examType]: req.body.paperLink}},
                     (err, numAffected)=>{
