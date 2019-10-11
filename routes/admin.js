@@ -5,16 +5,10 @@ const router = express.Router();
 const auth = require('./auth');
 const post = require('./post');
 
-//Importing database schemas
-const schools = require('../models/schools');
-const courses = require('../models/courses');
 
 //Route middlewares
 router.use('/post', post);
 
-//Setting up middleware for parsing post request
-router.use(express.json());
-router.use(express.urlencoded({extended: true}));
 
 //Handling the requests
 

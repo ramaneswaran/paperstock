@@ -6,7 +6,6 @@ const schools = require('../models/schools');
 const courses = require('../models/courses');
 
 
-
 //Setting up middleware for parsing post request
 router.use(express.json());
 router.use(express.urlencoded({extended: true}));
@@ -17,6 +16,7 @@ router.use(express.urlencoded({extended: true}));
 router.get('/:schoolName', (req,res)=>{
 
     schools.findOne({"schoolName": req.params.schoolName}, (err, school)=>{
+        if(err) res.send(err);
         if(typeof school === 'null') res.send('404 error');
         const course = school.courses;
         const courseNames = school.courseNames;
@@ -40,6 +40,7 @@ router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
             res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: false});
         }
         else{
+            console.log("Reached here");
             res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: true});
         }
     });

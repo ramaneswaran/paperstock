@@ -1,6 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
+//Importing database schemas
+const schools = require('../models/schools');
+const courses = require('../models/courses');
+
+//Setting up middleware for parsing post request
+router.use(express.json());
+router.use(express.urlencoded({extended: true}));
 
 //USED TO ADD SCHOOLS
 router.post('/addschool', (req, res)=>{
