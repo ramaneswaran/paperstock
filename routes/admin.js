@@ -7,14 +7,18 @@ const post = require('./post');
 
 
 //Route middlewares
-router.use('/post', post);
+router.use('/post', post);  //Used for posting courses and papers
+router.use('/auth', auth); //Used for login and register
 
 
-//Handling the requests
 
 //Rendering views for admin panel
 router.get('/', (req, res)=>{
     res.render('login');
+});
+
+router.get('/adminPanel', (req, res) => {
+    res.render('admin');
 });
 
 router.get('/addcourse', (req, res)=>{
