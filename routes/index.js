@@ -8,13 +8,6 @@ router.get('/', (req, res)=>{
     res.render('index');
 });
 
-router.get('/layout', (req, res)=>{
-    res.render('layout');
-});
-
-router.get('/test', (req, res)=>{
-    res.render('test');
-});
 
 router.get('/sharepaper', (req, res)=>{
     res.render('sharepaper');
