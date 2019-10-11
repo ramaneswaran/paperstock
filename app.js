@@ -7,7 +7,8 @@ require('dotenv/config');
 const index = require('./routes/index');
 const admin = require('./routes/admin');
 const courses = require('./routes/courses');
-const login = require('./routes/login');
+
+
 
 //Set up express app
 const app = express();
@@ -16,11 +17,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended :true}));
 
-//Set up api routes
+//Route middlewares
 app.use('/', index);
 app.use('/admin', admin);
 app.use('/courses', courses);
-app.use('/login', login);
 
 //Set up a middleware
 app.use(express.static('public'));
@@ -31,10 +31,18 @@ app.set('view engine', 'ejs');
 
 
 //CONNECT TO DB
-mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true}, (err)=>{
-    if(err) console.log(err);
-    console.log('Connected to DB');
-});
+mongoose.connect(process.env.DB_CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+ }).then(()=>{
+     console.log(`Connected to DB`)
+ }).catch(err=>{
+     console.log(`DB error ${err.message}`);
+     process.exit(-1)
+ });
+
 
 app.listen(process.env.port || 3000, ()=>{
     console.log("Listening to port")
