@@ -56,7 +56,7 @@ router.post('/login', async (req, res)=>{
 
     //Create and assign token
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-    res.cookie('key', token, {expire: 900000 + Date.now()}).redirect('../adminPanel');
+    res.cookie('token', token, {expire: 900000 + Date.now()}).redirect('../adminPanel');
 
 });
 module.exports = router;
