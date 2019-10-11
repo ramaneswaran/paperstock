@@ -14,7 +14,7 @@ router.use('/post', post);
 
 //Rendering views for admin panel
 router.get('/', (req, res)=>{
-    res.render('admin');
+    res.render('login');
 });
 
 router.get('/addcourse', (req, res)=>{
