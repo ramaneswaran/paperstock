@@ -20,7 +20,8 @@ router.use('/auth', auth); //Used for login and register
 
 //Rendering views for admin panel
 router.get('/', (req, res)=>{
-    res.render('login');
+    if(req.cookies.token) res.redirect('/admin/adminPanel');
+    else  res.render('login');
 });
 
 router.get('/adminPanel', verify, (req, res) => {
