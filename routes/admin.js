@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const verify = require('./verifyToken');
+const cookieParser = require('cookie-parser');
+
+
+//Middlewares
+router.use(cookieParser());
 
 //Routes
 const auth = require('./auth');
@@ -18,7 +23,7 @@ router.get('/', (req, res)=>{
     res.render('login');
 });
 
-router.get('/adminPanel', verify ,(req, res) => {
+router.get('/adminPanel', verify, (req, res) => {
     res.render('admin');
 });
 
