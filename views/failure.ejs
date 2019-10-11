@@ -4,34 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Courses</title>
+    <title>Admin Panel</title>
 
-   
+    
     <link href="/css/nav.css" rel="stylesheet">
-    <link href="/css/courses.css" rel="stylesheet">
+    <link href="/css/failure.css" rel="stylesheet">
     <link href="/css/footer.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/js/nav.js"></script>
+
 </head>
 <body>
     <% include partials/nav %>
-
-    <div class="wrapper">
-    
-     <div class="container">    
-        <ul class="course-list">
-            <% for(var i=0; i< course.length; i++){%>
-                <li><a href=<%= schoolName %>/<%= course[i] %>/catTwo> <%= course[i] %>&nbsp&nbsp<%=courseNames[i] %></a></li>
-            <% } %>
-        </ul>
-            <% if(empty === true) {%>
-                <h1>There are no courses, at the moment</h1>
-            <% } %>
+    <div class="flex-wrapper">
+        <div class="column">
+        <div class="flex-image">
+            <img src='/images/tenor.gif' class="success-tick">
+        </div>
+        <div class="flex-message">
+            <h1 class="success-heading">Error</h1>
+            <br>
+            <span class="success-message"><%= message %> </span>
+        </div>  
+        <div class="flex-links">
+            <ul class="redirect-options">
+                <li><a href="/admin/addcourse">Add course</a></li>
+                <li><a href="/admin/addpaper">Add paper</a></li>
+            </ul>
+        </div>
+        </div>
     </div>
-</div>
-    
 </body>
 </html>

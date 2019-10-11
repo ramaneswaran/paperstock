@@ -24,6 +24,11 @@ router.get('/addpaper', (req, res)=>{
     res.render('addpaper');
 });
 
+router.get('/f', (req, res)=>{
+    res.render('failure', {item: 'Shit'});
+})
+
+//USED TO ADD SCHOOLS
 router.post('/addschool', (req, res)=>{
     const newSchool = new schools({
         schoolName : req.body.name
@@ -53,6 +58,7 @@ router.post('/addcourse/submit', (req, res)=>{
             (err, numAffected)=>{
                 if(err){
                     console.error(err);
+                    res.render('failure', {message: 'The course could not be added'})
                 }
             }
         );
@@ -80,12 +86,15 @@ router.post('/addcourse/submit', (req, res)=>{
             });
         
             newCourse.save((err, savedCourse)=>{
-            res.json(savedCourse);
+            if(err) throw err;
+            else{
+                res.status(200).render('success', {message: 'The course has been posted successfully'});
+            }
             });
         }
     
         else{
-            res.send("Course already exists, Dattebayo!");
+            res.render('failure', {message: 'The course already exists'});
         }
     });
     
@@ -93,10 +102,9 @@ router.post('/addcourse/submit', (req, res)=>{
 });
 
 
-//Posting a new paper~
+//Posting a new paper
 router.post('/addpaper/submit', (req, res)=>{
     //Update the document
-    console.log("Reached here");
     courses.findOne({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
         if(err) {
             console.error(err);
@@ -104,7 +112,6 @@ router.post('/addpaper/submit', (req, res)=>{
         else{
             if(count == 1){
                 const examType = req.body.exam + 'Links'; 
-                console.log(examType);
                 courses.updateOne({courseCode: req.body.courseCode},
                     {$push: {[examType]: req.body.paperLink}},
                     (err, numAffected)=>{
@@ -113,10 +120,10 @@ router.post('/addpaper/submit', (req, res)=>{
                         }
                     }
                 );
-                res.send("It probably worked");
+                res.status(200).render('success', {message: 'Paper has been added successfully'});
             }
             else{
-                res.send("Thomas had never seen such a bullshit, this course doesnt exist");
+                res.status(409).render('failure', {message: 'The course does not exist'});
             }
         }
     });
