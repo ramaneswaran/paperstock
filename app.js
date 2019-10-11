@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const expressLayouts = require('express-ejs-layouts');
 
 require('dotenv/config');
 
@@ -27,7 +26,6 @@ app.use('/login', login);
 app.use(express.static('public'));
 
 //Set up template engine
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 
