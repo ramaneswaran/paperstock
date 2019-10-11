@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const verify = require('./verifyToken');
 
 //Routes
 const auth = require('./auth');
@@ -17,22 +18,17 @@ router.get('/', (req, res)=>{
     res.render('login');
 });
 
-router.get('/adminPanel', (req, res) => {
+router.get('/adminPanel', verify ,(req, res) => {
     res.render('admin');
 });
 
-router.get('/addcourse', (req, res)=>{
+router.get('/addcourse', verify ,(req, res)=>{
     res.render('addcourse');
 });
 
-router.get('/addpaper', (req, res)=>{
+router.get('/addpaper', verify, (req, res)=>{
     res.render('addpaper');
 });
-
-router.get('/f', (req, res)=>{
-    res.render('failure', {item: 'Shit'});
-})
-
 
 
 module.exports = router;
