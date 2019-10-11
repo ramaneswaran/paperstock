@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel</title>
+
+    
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/nav.js"></script>
+
+</head>
+<body>
+    <% include partials/nav %>
+    <div class="wrapper">   
+        <h1 class="admin-heading">Please Login To Continue</h1>
+        <br>
+        <div class="container">    
+            <fieldset>
+                <legend>LOGIN</legend>
+                <form method='POST' action='/auth'>
+                    <br>
+                    Username : <input type='email' name='username'>
+                    <br>
+                    Password : <input type='password' name='pass'>
+                    <br>
+                    <input type='submit' value='LOGIN'>
+                </form>
+            </fieldset>
+        </div>  
+    </div>
+</body>
+</html>
