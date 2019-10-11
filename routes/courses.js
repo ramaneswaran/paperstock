@@ -16,16 +16,20 @@ router.use(express.urlencoded({extended: true}));
 router.get('/:schoolName', (req,res)=>{
 
     schools.findOne({"schoolName": req.params.schoolName}, (err, school)=>{
+        
+        
         if(err) res.send(err);
-        if(typeof school === 'null') res.send('404 error');
-        const course = school.courses;
-        const courseNames = school.courseNames;
-        if(course.length >0){
-            res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName,empty: false})
-        }
+        if(!school) res.status(404).send('The school is not in DB');
         else{
-            res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName ,empty: true})       
-         }
+            const course = school.courses;
+            const courseNames = school.courseNames;
+            if(course.length >0){
+                res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName,empty: false})
+            }
+            else{
+                res.render('courses', {course : course, courseNames : courseNames, schoolName: req.params.schoolName ,empty: true})       
+            }
+        }
     });
 });
 
