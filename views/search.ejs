@@ -22,7 +22,7 @@
    <% include partials/nav %>
     <ul>
    <% for (var i=0; i< result.length; i++) { %>
-        <li><a href=courses/<%= result[i].courseCode%>/catOne > <%= result[i].courseCode%> &nbsp&nbsp&nbsp <%= result[i].courseName %></a></li>
+        <li><a href=search/<%= result[i].courseCode%>/catOne > <%= result[i].courseCode%> &nbsp&nbsp&nbsp <%= result[i].courseName %></a></li>
     </ul>
     <% } %>
     <% if(result.length == 0) {%>
