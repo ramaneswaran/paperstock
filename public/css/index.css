@@ -93,7 +93,9 @@ section{
 
 .card:hover{
     box-shadow: 5px 10px 18px black;
+    background-color: #696969;
 }
+
 
 a.card-title {
     display: inline-block;
