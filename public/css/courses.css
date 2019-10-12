@@ -20,42 +20,6 @@ body,html{
 }
 
 
-
-
-.container {
-    display: block;
-    background-color: #57595d;
-    margin: 5% 5%;
-    width: 80vw;
-    height: auto;
-    border: 2px solid red;
-}
-
-ul.course-list {
-    list-style-type: none;  
-    padding: 2rem 0.3rem;
-    margin:0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items : center;
-}
-
-ul.course-list li {
-    display: inline-block;
-    margin: 0.4rem;
-    border: 1px solid blanchedalmond;
-    width: 70%;
-    padding: 0.2rem;
-}
-
-ul.course-list li a {
-    color: white;
-    display: block;
-    width: 100%;    
-    font-size: 1.7rem;
-    text-decoration: none;
-}
-
-ul.course-list li a:hover{
-    font-size: 1.9rem;
+.container{
+    margin-top: 5%;
 }
