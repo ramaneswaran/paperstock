@@ -19,20 +19,20 @@ router.use('/auth', auth); //Used for login and register
 
 
 //Rendering views for admin panel
-router.get('/', (req, res)=>{
+router.get('/', verify, (req, res)=>{
     if(req.cookies.token) res.redirect('/admin/adminPanel');
     else  res.render('login');
 });
 
-router.get('/adminPanel',  (req, res) => {
+router.get('/adminPanel',  verify, (req, res) => {
     res.render('admin');
 });
 
-router.get('/addcourse', (req, res)=>{
+router.get('/addcourse', verify, (req, res)=>{
     res.render('addcourse');
 });
 
-router.get('/addpaper',  (req, res)=>{
+router.get('/addpaper', verify,  (req, res)=>{
     res.render('addpaper');
 });
 
