@@ -20,23 +20,25 @@
 </head>
 <body>
     <% include partials/nav %>
-    <div class="flex-wrapper">
-        <div class="column">
-        <div class="flex-image">
-            <img src='/images/tick.png' class="success-tick">
-        </div>
-        <div class="flex-message">
-            <h1 class="success-heading">Success</h1>
-            <br>
-            <span class="success-message"><%= message %> </span>
-        </div>  
-        <div class="flex-links">
-            <ul class="redirect-options">
-                <li><a href="/admin/addcourse">Add course</a></li>
-                <li><a href="/admin/addpaper">Add paper</a></li>
-            </ul>
-        </div>
+   
+   
+<div class="container">
+
+    <div class="col-xl-6 ">
+        <div class="jumbotron">
+            <div class="card">
+                <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Success</h4>
+                </div>
+                <div class="card-body">
+                    <%= message %>
+                </div>
+            </div>
+            <a class="opt btn btn-primary btn-lg" href="/admin/addcourse" role="button">Add course</a>
+            <a class="opt btn btn-primary btn-lg" href="/admin/addpaper" role="button">Add paper</a>
         </div>
     </div>
+</div>
+
 </body>
 </html>

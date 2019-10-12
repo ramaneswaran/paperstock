@@ -17,72 +17,13 @@ body,html{
     background-attachment: fixed;
 }
 
-.flex-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 5% auto auto auto;
-}
- 
-
-.column{
-    width: auto;
-    border: 2px dashed tomato;
-}
-.flex-image{
-    border: 2px solid blue;
-    
-
+.container{
+    margin-top:10%;
+    margin-left: 30%;
 }
 
-.flex-message{
-    border: 2px solid blue;
-    display: block;
+.opt{
+    margin-top: 2rem;
+    margin-right: 3rem;
+    width: 10rem;
 }
-
-.flex-links{
-    border: 2px solid blue;
-}
-.success-tick{
-    height: 70%;
-    width: 70%;
-    margin: auto auto auto 15%;
-    
-}
-
-
-.success-heading{
-    
-    font-size: 2rem;
-    margin: auto auto auto 30%;
-}
-
-.success-message {
-    margin: auto auto 2% 10%;
-}
-ul.redirect-options {
-    list-style-type: none;  
-    padding: 2rem 0.3rem;
-    margin:0.5rem;
-    display: flex;
-    flex-direction: row;
-    
-    
-}
-
-ul.redirect-options li {
-    display: block;
-    margin: 0.4rem;
-    width: 100%;
-    padding: 0.2rem;
-    border: 2px solid red;
-}
-
-ul.redirect-options li a {
-    width: 100%;    
-    font-size: 1.9rem;
-    text-decoration: none;
-}
-
-
