@@ -34,6 +34,25 @@ router.get('/:schoolName', (req,res)=>{
 });
 
 //Viewing the papers in a course
+
+router.get('/:courseCode/:examType', (req, res)=>{
+    courses.findOne({courseCode: req.params.courseCode},(err, course)=>{
+        if(err) res.send("404");
+
+        const examType = req.params.examType + 'Links';
+        const courseLinks = course[examType];
+        if(courseLinks.length >0){
+            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: false});
+        }
+        else{
+            console.log("Reached here");
+            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: true});
+        }
+    });
+    
+});
+
+
 router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
     courses.findOne({courseCode: req.params.courseCode},(err, course)=>{
         if(err) res.send("404");
@@ -50,5 +69,6 @@ router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
     });
     
 });
+
 
 module.exports = router;    
