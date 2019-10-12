@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <link href="/css/nav.css" rel="stylesheet"> 
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
     <link href="/css/footer.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -36,17 +36,18 @@
             </fieldset>
         </div>  
     </div> -->
-    <div class="form- ml-3">
-        <form method="POST" action="../admin/auth/login">
+    
+        <form method="POST" action="../admin/auth/login" class='form-signin'>
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <div class="form-row">
-                <div class="col-3">
+                <div class="col-12">
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email" name='email' aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-3">
+                <div class="col-12">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name='password' id="password" placeholder="Password">
                 </div>
@@ -54,6 +55,6 @@
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    </div>
+
 </body>
 </html>
