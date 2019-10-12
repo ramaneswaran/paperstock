@@ -6,13 +6,6 @@ const Fuse = require('fuse.js');
 //Mongoose model
 const Course  = require('../models/courses');
 
-//Route
-const courses = require('./courses');
-
-//Route middleware
-router.use('/courses', courses);
-
-
 let courseList = []
 Course.find({}, (err, courses)=>{
         new Promise((resolve,reject)=>{
@@ -29,6 +22,24 @@ Course.find({}, (err, courses)=>{
     })
     
 });
+
+router.get('/:courseCode/:examType', (req, res)=>{
+    Course.findOne({courseCode: req.params.courseCode},(err, course)=>{
+        if(err) res.send("404");
+
+        const examType = req.params.examType + 'Links';
+        const courseLinks = course[examType];
+        if(courseLinks.length >0){
+            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: false});
+        }
+        else{
+            
+            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: true});
+        }
+    });
+    
+});
+
 
 router.post('/', (req, res)=>{
     const options = {
