@@ -20,30 +20,17 @@
 <body>
     <% include partials/nav %>
 
-    <!-- <div class="wrapper">
-    
-     <div class="container">    
-        <ul class="course-list">
-            <% for(var i=0; i< course.length; i++){%>
-                <li><a href=<%= schoolName %>/<%= course[i] %>/catOne> <%= course[i] %>&nbsp&nbsp<%=courseNames[i] %></a></li>
-            <% } %>
-        </ul>
-            <% if(empty === true) {%>
-                <h1>There are no courses, at the moment</h1>
-            <% } %>
-    </div>
-</div> -->
+
 
     <div class="container">
         <div class="jumbotron">
-                <% for(var i=0; i< course.length; i++){%>
-                    <a class="btn btn-secondary btn-lg btn-block text-left" href="<%= schoolName %>/<%= course[i] %>/catOne" role="button"><%= course[i] %>&nbsp&nbsp&nbsp&nbsp<%=courseNames[i] %></a>
-                    
-                <% } %>
-            </ul>
-                <% if(empty === true) {%>
-                    <h1 class='display-4'>There are no courses, at the moment</h1>
-                <% } %>
+            <% for(var i=0; i< course.length; i++){%>
+                <a class="btn btn-secondary btn-lg btn-block text-left" href=<%= schoolName %>/<%= course[i] %>/catOne role="button"><%= course[i] %>&nbsp&nbsp&nbsp&nbsp<%=courseNames[i] %></a>
+            <% } %>
+
+            <% if(empty === true) {%>
+                <h1 class='display-4'>There are no courses, at the moment</h1>
+            <% } %>
         </div>
     </div>
 </body>
