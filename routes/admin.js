@@ -19,7 +19,7 @@ router.use('/auth', auth); //Used for login and register
 
 
 //Rendering views for admin panel
-router.get('/', verify, (req, res)=>{
+router.get('/',  (req, res)=>{
     if(req.cookies.token) res.redirect('/admin/adminPanel');
     else  res.render('login');
 });
