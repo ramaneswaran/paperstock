@@ -24,15 +24,15 @@ router.get('/', (req, res)=>{
     else  res.render('login');
 });
 
-router.get('/adminPanel', verify, (req, res) => {
+router.get('/adminPanel',  (req, res) => {
     res.render('admin');
 });
 
-router.get('/addcourse', verify ,(req, res)=>{
+router.get('/addcourse', (req, res)=>{
     res.render('addcourse');
 });
 
-router.get('/addpaper', verify, (req, res)=>{
+router.get('/addpaper',  (req, res)=>{
     res.render('addpaper');
 });
 
