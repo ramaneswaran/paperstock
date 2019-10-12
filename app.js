@@ -7,7 +7,7 @@ require('dotenv/config');
 const index = require('./routes/index');
 const admin = require('./routes/admin');
 const courses = require('./routes/courses');
-
+const search = require('./routes/search');
 
 
 //Set up express app
@@ -21,6 +21,7 @@ app.use(express.urlencoded({extended :true}));
 app.use('/', index);
 app.use('/admin', admin);
 app.use('/courses', courses);
+app.use('/search', search);
 
 //Set up a middleware
 app.use(express.static('public'));
