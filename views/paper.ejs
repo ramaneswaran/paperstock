@@ -19,38 +19,19 @@
 </head>
 <body>
     <% include partials/nav %>
-    <!-- <div class="wrapper">
-    
-        <ul class="exam">
-            <li><a href=catOne>CAT1</a></li>
-            <li><a href=catTwo>CAT2</a></li>
-            <li><a href=Fat>FAT</a></li>    
-        </ul>
-    
-        <div class="container">    
-            <ul class="paper-list">
-                <% for(var i=0; i< courseLinks.length; i++){%>
-                    <li><a href=<%= courseLinks[i] %>>Question Paper <%= i %> </a></li>
-                <% } %>
-            </ul>
-            <% if(empty === true) {%>
-                <h1>There are no papers, at the moment</h1>
-            <% } %>
-        </div>
-    </div> -->
     <div class="container">
-            <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link" href="catOne">CAT ONE</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="catTwo">CAT TWO</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="Fat">FAT</a>
-                    </li>
-                  </ul>
-                  
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="catOne">CAT ONE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="catTwo">CAT TWO</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Fat">FAT</a>
+            </li>
+        </ul>
+                
         <div class="jumbotron">
                 <% for(var i=0; i< courseLinks.length; i++){%>
                     <a class="btn btn-secondary btn-lg btn-block text-left" href=<%= courseLinks[i] %> role="button"> Question Paper <%= i+1 %> </a>
