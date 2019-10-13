@@ -15,10 +15,8 @@ module.exports = function (req, res, next) {
          jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded)=>{
             req.user = decoded;
         });
-        
-        
         next();
     } catch( err ) {
-        res.status(400).send('Invalid Token');
+        res.status(400).render('forbidden', {message: 'Invalid token'});
     }
 }
