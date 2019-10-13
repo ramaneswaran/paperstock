@@ -18,8 +18,8 @@ router.get('/:schoolName', (req,res)=>{
     schools.findOne({"schoolName": req.params.schoolName}, (err, school)=>{
         
         
-        if(err) res.send(err);
-        if(!school) res.status(404).send('The school is not in DB');
+        if(err) res.status(404).render('error', {message: 'There was some error in retrieving the school'});
+        if(!school) res.status(404).render('error', {message: 'The school was not found'})
         else{
             const course = school.courses;
             const courseNames = school.courseNames;
@@ -37,16 +37,16 @@ router.get('/:schoolName', (req,res)=>{
 
 router.get('/:schoolName/:courseCode/:examType', (req, res)=>{
     courses.findOne({courseCode: req.params.courseCode},(err, course)=>{
-        if(err) res.send("404");
+        if(err) res.send(500).render('error', {message: 'There was some error in retrieving the papers'});
         
         const examType = req.params.examType + 'Links';
         const courseLinks = course[examType];
         if(courseLinks.length >0){
-            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: false});
+            res.status(200).render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: false});
         }
         else{
             
-            res.render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: true});
+            res.status(200).render('paper', {courseLinks: courseLinks, examType: examType, schoolName: req.params.schoolName, courseCode: req.params.courseCode, empty: true});
         }
     });
     
