@@ -14,7 +14,6 @@ router.post('/addschool', (req, res)=>{
     const newSchool = new schools({
         schoolName : req.body.name
     });
-    console.log(newSchool);
     newSchool.save((err, savedSchool)=>{
     if(err) throw err;
     res.json(savedSchool);
@@ -39,7 +38,7 @@ router.post('/addcourse/submit', (req, res)=>{
             (err, numAffected)=>{
                 if(err){
                     console.error(err);
-                    res.render('failure', {message: 'The course could not be added'})
+                    res.status(500).render('failure', {message: 'The course could not be added'})
                 }
             }
         );
@@ -52,6 +51,7 @@ router.post('/addcourse/submit', (req, res)=>{
                 (err, numAffected)=>{
                     if(err){
                         console.error(err);
+                        res.status(500).render('failure', {message: 'The course could not be added'})
                     }
                 }
             );
@@ -67,7 +67,7 @@ router.post('/addcourse/submit', (req, res)=>{
             });
         
             newCourse.save((err, savedCourse)=>{
-            if(err) throw err;
+            if(err) res.status(500).render('failure', {message: 'The course could not be added'})
             else{
                 res.status(200).render('success', {message: 'The course has been posted successfully'});
             }
@@ -75,7 +75,7 @@ router.post('/addcourse/submit', (req, res)=>{
         }
     
         else{
-            res.render('failure', {message: 'The course already exists'});
+            res.status(409).render('failure', {message: 'The course already exists'});
         }
     });
     
@@ -89,6 +89,7 @@ router.post('/addpaper/submit', (req, res)=>{
     courses.findOne({"courseCode": req.body.courseCode}).countDocuments((err, count)=>{
         if(err) {
             console.error(err);
+            res.status(409).render('failure', {message: 'The paper could not be added'})
         }
         else{
             if(count == 1){
@@ -98,6 +99,7 @@ router.post('/addpaper/submit', (req, res)=>{
                     (err, numAffected)=>{
                         if(err){
                             console.error(err);
+                            res.status(500).render('failure', {message: 'The paper could not be added'})
                         }
                     }
                 );
