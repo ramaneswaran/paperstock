@@ -20,35 +20,32 @@
 </head>
 <body>
     <% include partials/nav %>
-    <div class="wrapper">
-        <form method="POST" action="../admin/post/addpaper/submit" class="form">
-            <fieldset>
-                <legend>Course code</legend>
-                <input type="text" name="courseCode">
-            </fieldset>
-            <fieldset>
-                <legend>Paper Link</legend>
-                <input type="url" name="paperLink">
-            </fieldset>
-            <fieldset>
-                <legend>Exam</legend>
-                <table class="exam-type">
-                    <tr>
-                        <td><label for="catOne">CAT1</label></td>
-                        <td><label for="catTwo">CAT2</label></td>
-                        <td><label for="Fat">FAT</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" name="exam" id="catOne" value="catOne"></td>
-                        <td><input type="radio" name="exam" id="catTwo" value="catTwo"></td>
-                        <td><input type="radio" name="exam" id="Fat" value="Fat"></td>
-                    </tr>
-                </table>
-            </fieldset>
-            <fieldset>
-                <input type="submit" id="submit" value="SUBMIT">
-            </fieldset>
-        </form>
-    </div>
+    <div class='container'>
+        <form style="   position: absolute; left: 0; right: 0; margin: auto;   "  class="form-horizondal" method="POST" action="../admin/post/addpaper/submit">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="courseCode"><b>Course Code:</b></label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="" placeholder="Enter the course code" name="courseCode">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="paperLink"><b>Paper Link:</b></label>
+                <div class="col-sm-10">
+                  <input type="link" class="form-control" id="" placeholder="png,pdf*" name="paperLink">
+                </div>
+            </div>
+            
+            <div class="form-group ">
+                <label class="control-label col-sm-2"><b>Exam type:</b></label>
+                <div class="col-sm-8 form-inline">
+                  <label class="control-label col-sm-3"><input type="radio" class="form-control" id="catOne" value="catOne" name="examType">Cat-1</label>
+                  <label class="control-label col-sm-3"><input type="radio" class="form-control" id="catTwo" value="catTwo" name="examType">Cat-2</label>
+                  <label class="control-label col-sm-3"><input type="radio" class="form-control" id="fat"    value="fat" name="examType">Fat  </label>
+                </div>
+            </div>
+            <button type="submit" id="submit" class="btn btn-default">Submit</button>
+            
+        </form> 
+        </div>
 </body>
 </html>
