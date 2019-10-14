@@ -34,7 +34,7 @@
                 
         <div class="jumbotron">
                 <% for(var i=0; i< courseLinks.length; i++){%>
-                    <a class="btn btn-secondary btn-lg btn-block text-left" href=<%= courseLinks[i] %> role="button"> Question Paper <%= i+1 %> </a>
+                    <a class="btn btn-secondary btn-lg btn-block text-left" href=<%= courseLinks[i] %> role="button" target="_blank" rel="noopener"> Question Paper <%= i+1 %> </a>
                 <% } %>
                 <% if(empty === true) {%>
                     <h1 class='display-4'>There are no papers, at the moment</h1>
