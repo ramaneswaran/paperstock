@@ -54,8 +54,8 @@ router.post('/', (req, res)=>{
             courseName: item.courseName, 
         });
     });
-    if(result) res.render('search', {result: result, empty: false});
-    else res.render('search', {result: result, empty: true});
+    if(!result || result.length == 0) res.render('search', {result: result, empty: true});
+    else res.render('search', {result: result, empty: false});
 });
 
 module.exports = router;
