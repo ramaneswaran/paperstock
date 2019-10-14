@@ -11,20 +11,32 @@ body,html{
     height: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    //background-image: url('/images/art-background-blank-2340254.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .container{
-    margin-top:8%;
-    border: 2px solid blue;
+    margin-top:5%;
     padding: 2%;
+    margin-left:35%;
 }
 
 .display-4{
     font-size: 3.2rem;
-    margin-bottom:5%;
+    margin-bottom:3%;
 }
+
+.form-group{
+    margin-bottom:2%;
+}
+
+
+@media screen and (max-width: 768px){
+    .container{
+        margin-left: 5%;
+    
+    }
