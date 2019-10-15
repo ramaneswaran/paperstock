@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Fuse = require('fuse.js');
 
 //Mongoose model
 const Course  = require('../models/courses');
