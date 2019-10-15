@@ -6,23 +6,6 @@ const Fuse = require('fuse.js');
 //Mongoose model
 const Course  = require('../models/courses');
 
-let courseList = []
-Course.find({}, (err, courses)=>{
-        new Promise((resolve,reject)=>{
-        courseList  = courses;
-        
-        if(courseList) resolve();
-        
-        if(err) reject(err);
-            
-    }).then(()=>{
-        console.log('CourseLoaded');
-    }).catch((err)=>{
-        console.log(err);
-    })
-    
-});
-
 router.get('/:courseCode/:examType', (req, res)=>{
     Course.findOne({courseCode: req.params.courseCode},(err, course)=>{
         if(err) res.send("404");
@@ -41,21 +24,15 @@ router.get('/:courseCode/:examType', (req, res)=>{
 });
 
 
-router.post('/', (req, res)=>{
-    const options = {
-        keys: ['courseCode', 'courseName'],
-
-    }
-    const fuse = new Fuse(courseList, options)
-    let result = []
-    fuse.search(req.body.query).forEach((item)=>{
-        result.push({
-            courseCode: item.courseCode,
-            courseName: item.courseName, 
-        });
-    });
-    if(!result || result.length == 0) res.render('search', {result: result, empty: true});
-    else res.render('search', {result: result, empty: false});
+router.post('/',(req, res)=>{
+    Course.find( {"courseName": {"$regex": req.body.query, "$options": "i"} },
+            function(err, result){
+                if(err) console.log(err);
+                console.log(req.body.query)
+                if(!result || result.length == 0) res.render('search', {result: result, empty: true});
+                else res.render('search', {result: result, empty: false});
+            }
+    );
 });
 
 module.exports = router;
