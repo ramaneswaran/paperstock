@@ -2,7 +2,8 @@
   "name": "paperstocks",
   "version": "1.0.0",
   "engines": {
-    "node": "8.10.0"
+    "node": "8.10.0",
+    "npm": "3.5.2"
   },
   "description": "The paper sharing website",
   "main": "app.js",
