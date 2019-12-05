@@ -6,4 +6,4 @@ https://paperstocks.herokuapp.com/
 
 or click the link below
 
-[Click here](https://www.google.com "PaperStock")
+[Click here](https://paperstocks.herokuapp.com/ "PaperStock")
